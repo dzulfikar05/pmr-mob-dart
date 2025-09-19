@@ -45,7 +45,6 @@ void main(List<String> arguments) {
   }
 
   print(setNilai1);
-   print(setNilai1.union(setNilai2));
+  print(setNilai1.union(setNilai2));
   print(setNilai1.intersection(setNilai2));
-
 }
