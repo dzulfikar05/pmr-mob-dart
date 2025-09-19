@@ -31,20 +31,39 @@ void main(List<String> arguments) {
   // print(setNilai1.union(setNilai2));
   // print(setNilai1.intersection(setNilai2));
 
-  var setNilai1 = <int>{};
-  var setNilai2 = <int>{1, 2, 3};
+  // var setNilai1 = <int>{};
+  // var setNilai2 = <int>{1, 2, 3};
+
+  // stdout.writeln("Jumlah Data setNilai1 =");
+  // String input = stdin.readLineSync()!;
+  // int jumlah = int.parse(input);
+  // for (var i = 0; i < jumlah; i++) {
+  //   stdout.writeln("Nilai ke-${i + 1}");
+  //   String input = stdin.readLineSync()!;
+  //   int nilai = int.parse(input);
+  //   setNilai1.add(nilai);
+  // }
+
+  // print(setNilai1);
+  // print(setNilai1.union(setNilai2));
+  // print(setNilai1.intersection(setNilai2));
+ 
+ 
+  var setNilai1 = <String>{};
 
   stdout.writeln("Jumlah Data setNilai1 =");
   String input = stdin.readLineSync()!;
-  int jumlah = int.parse(input);
+  int jumlah = (int.tryParse(input ?? '')) ?? 0;
+
   for (var i = 0; i < jumlah; i++) {
     stdout.writeln("Nilai ke-${i + 1}");
-    String input = stdin.readLineSync()!;
-    int nilai = int.parse(input);
+    String? input = stdin.readLineSync();
+    String nilai = input ?? '';
     setNilai1.add(nilai);
   }
 
   print(setNilai1);
-  print(setNilai1.union(setNilai2));
-  print(setNilai1.intersection(setNilai2));
+  print(setNilai1.elementAt(1));
+  
+  
 }
