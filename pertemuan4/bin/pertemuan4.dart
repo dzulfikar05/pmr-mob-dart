@@ -49,21 +49,31 @@ void main(List<String> arguments) {
   // print(setNilai1.intersection(setNilai2));
  
  
-  var setNilai1 = <String>{};
+  // var setNilai1 = <String>{};
 
-  stdout.writeln("Jumlah Data setNilai1 =");
-  String input = stdin.readLineSync()!;
-  int jumlah = (int.tryParse(input ?? '')) ?? 0;
+  // stdout.writeln("Jumlah Data setNilai1 =");
+  // String input = stdin.readLineSync()!;
+  // int jumlah = (int.tryParse(input ?? '')) ?? 0;
 
-  for (var i = 0; i < jumlah; i++) {
-    stdout.writeln("Nilai ke-${i + 1}");
-    String? input = stdin.readLineSync();
-    String nilai = input ?? '';
-    setNilai1.add(nilai);
-  }
+  // for (var i = 0; i < jumlah; i++) {
+  //   stdout.writeln("Nilai ke-${i + 1}");
+  //   String? input = stdin.readLineSync();
+  //   String nilai = input ?? '';
+  //   setNilai1.add(nilai);
+  // }
 
-  print(setNilai1);
-  print(setNilai1.elementAt(1));
+  // print(setNilai1);
+  // print(setNilai1.elementAt(1));
+
+  var sudah = {
+    'nim' : ['1232', '1234', '1235'],
+    'nama' : ['agus', 'joko', 'budi'],
+    'umur' : [20, 21, 22],
+  };
+
+  print(sudah);
+  print(sudah['nama']);
+  print(sudah['nama']![1]);
   
   
 }
