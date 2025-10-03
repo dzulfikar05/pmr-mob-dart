@@ -13,6 +13,12 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Hello World'),
+          backgroundColor: Colors.blue,
+          leading: const Icon(Icons.menu),
+          actions: const [
+            Icon(Icons.search),
+            Icon(Icons.more_vert),
+          ],
         ),
         body: const Center(
           child: Text('Hello World'),
