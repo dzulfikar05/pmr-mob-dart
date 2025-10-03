@@ -56,7 +56,27 @@ class Profile extends StatelessWidget {
                   const SizedBox(height: 8),
                   textRowCustom("NIM", "2341760071", 16, "normal"),
                   const SizedBox(height: 8),
-                  textRowCustom("Jurusan", "Teknik Informatika", 16, "normal"),
+                  textRowCustom("Jurusan", "Teknologi Informasi", 16, "normal"),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.email),
+                        onPressed: () {},
+                      ),
+                      const SizedBox(width: 16),
+                      IconButton(
+                        icon: const Icon(Icons.phone),
+                        onPressed: () {},
+                      ),
+                      const SizedBox(width: 16),
+                      IconButton(
+                        icon: const Icon(Icons.location_on),
+                        onPressed: () {},
+                      ),
+                    ],
+                    )
                 ],
               ),
             ),
