@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const GridExample());
+  runApp(const StylingExample());
 }
 
-class GridExample extends StatelessWidget {
-  const GridExample({super.key});
+class StylingExample extends StatelessWidget {
+  const StylingExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('GridView Example')),
-        body: GridView.count(
-          crossAxisCount: 2,
-          children: List.generate(6, (index) {
-            return Card(
-              color: Colors.blue[100],
-              margin: EdgeInsets.all(8),
-              child: Center(
+        appBar: AppBar(title: Text('Styling dan Positioning')),
+        body: Stack(
+          children: [
+            Container(color: Colors.lightBlueAccent),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                padding: EdgeInsets.all(20),
+                color: Colors.white,
                 child: Text(
-                  'Item ${index + 1}',
-                  style: TextStyle(fontSize: 20),
+                  'Tengah Layar',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
-            );
-          }),
+            ),
+          ],
         ),
       ),
     );
