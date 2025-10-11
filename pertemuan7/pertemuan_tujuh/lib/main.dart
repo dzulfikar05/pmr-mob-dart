@@ -1,35 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'home_page.dart'; 
+import 'about_page.dart';
+
+final GoRouter _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/about',
+      builder: (context, state) => const AboutPage(),
+    ),
+  ],
+);
 
 void main() {
-  runApp(const StylingExample());
-}
-
-class StylingExample extends StatelessWidget {
-  const StylingExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: Text('Styling dan Positioning')),
-        body: Stack(
-          children: [
-            Container(color: Colors.lightBlueAccent),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                padding: EdgeInsets.all(20),
-                color: Colors.white,
-                child: Text(
-                  'Tengah Layar',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  runApp(MaterialApp.router(
+    routerConfig: _router,
+    debugShowCheckedModeBanner: false,
+  ));
 }
