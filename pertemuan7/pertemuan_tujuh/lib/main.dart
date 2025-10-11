@@ -1,35 +1,28 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const ProfileLayout());
+  runApp(const ListViewExample());
 }
 
-class ProfileLayout extends StatelessWidget {
-  const ProfileLayout({super.key});
+class ListViewExample extends StatelessWidget {
+  const ListViewExample({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<String> items = ['Flutter', 'Dart', 'Firebase', 'UI/UX', 'API'];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Layout Profil'),
-        ),
-        body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/user.png'),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Dzulfikar',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
+        appBar: AppBar(title: Text('ListView Example')),
+        body: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Icon(Icons.code),
+              title: Text(items[index]),
+              onTap: () => print('Klik: ${items[index]}'),
+            );
+          },
         ),
       ),
     );
