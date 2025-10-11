@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ListViewExample());
+  runApp(const ProfileLayout());
 }
 
-class ListViewExample extends StatelessWidget {
-  const ListViewExample({super.key});
+class ProfileLayout extends StatelessWidget {
+  const ProfileLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Contoh ListView')),
-        body: ListView(
-          children: [
-            ListTile(title: Text('Item 1'), leading: Icon(Icons.star)),
-            ListTile(title: Text('Item 2'), leading: Icon(Icons.favorite)),
-            ListTile(title: Text('Item 3'), leading: Icon(Icons.home)),
-          ],
+        appBar: AppBar(
+          title: const Text('Layout Profil'),
+        ),
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/user.png'),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Dzulfikar',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );
