@@ -1,37 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(StackExample());
+  runApp(ListViewExample());
 }
 
-class StackExample extends StatelessWidget {
-  const StackExample({super.key});
+class ListViewExample extends StatelessWidget {
+  const ListViewExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Contoh Stack')),
-        body: Center(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                width: 200,
-                height: 200,
-                color: Colors.blue[100],
-              ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue[300],
-              ),
-              Text(
-                'Tumpuk!',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
+        appBar: AppBar(title: Text('Contoh ListView')),
+        body: ListView(
+          children: [
+            ListTile(title: Text('Item 1'), leading: Icon(Icons.star)),
+            ListTile(title: Text('Item 2'), leading: Icon(Icons.favorite)),
+            ListTile(title: Text('Item 3'), leading: Icon(Icons.home)),
+          ],
         ),
       ),
     );
