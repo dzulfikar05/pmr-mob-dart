@@ -1,36 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'models/counter_model.dart';
 
-void main() => runApp(const MaterialApp(home: CounterDemo()));
-
-class CounterDemo extends StatefulWidget {
-  const CounterDemo({super.key});
-
-  @override
-  State<CounterDemo> createState() => _CounterDemoState();
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CounterModel(),
+      child: const MyApp(),
+    ),
+  );
 }
 
-class _CounterDemoState extends State<CounterDemo> {
-  int counter = 0;
-
-  void increment() {
-    setState(() {
-      counter++;
-    });
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: CounterPage(),
+    );
+  }
+}
+
+class CounterPage extends StatelessWidget {
+  const CounterPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final counter = context.watch<CounterModel>();
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Stateful Example')),
+      appBar: AppBar(title: const Text('Provider Example')),
       body: Center(
         child: Text(
-          'Counter: $counter',
-          style: const TextStyle(fontSize: 32),
+          'Nilai: ${counter.count}',
+          style: const TextStyle(fontSize: 30),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: increment,
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: counter.increment,
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(width: 10),
+          FloatingActionButton(
+            onPressed: counter.reset,
+            backgroundColor: Colors.red,
+            child: const Icon(Icons.refresh),
+          ),
+        ],
       ),
     );
   }
