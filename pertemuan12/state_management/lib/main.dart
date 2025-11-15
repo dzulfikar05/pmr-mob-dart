@@ -1,43 +1,41 @@
 import 'package:flutter/material.dart';
-import 'counter_inherited.dart';
+import 'counter_model.dart';
+import 'counter_provider.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  int counter = 0;
+class MyApp extends StatelessWidget {
+  final CounterModel model = CounterModel();
 
   @override
   Widget build(BuildContext context) {
-    return CounterInherited(
-      count: counter,
+    return CounterProvider(
+      notifier: model,
       child: MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(title: Text("InheritedWidget Demo")),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Value from InheritedWidget:"),
-                Builder(builder: (context) {
-                  final data = CounterInherited.of(context).count;
-                  return Text(
-                    "$data",
-                    style: TextStyle(fontSize: 40),
-                  );
-                }),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () => setState(() => counter++),
-                  child: Text("Increment"),
-                )
-              ],
-            ),
-          ),
+        home: HomeScreen(),
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final model = CounterProvider.of(context);
+
+    return Scaffold(
+      appBar: AppBar(title: Text("InheritedNotifier Demo")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("${model.count}", style: TextStyle(fontSize: 50)),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: model.increment,
+              child: Text("Increment"),
+            )
+          ],
         ),
       ),
     );
