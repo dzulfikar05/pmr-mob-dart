@@ -1,42 +1,22 @@
 import 'package:flutter/material.dart';
 import 'counter_model.dart';
 import 'counter_provider.dart';
+import 'home_screen.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  final CounterModel model = CounterModel();
+  final CounterModel counterModel = CounterModel();
 
   @override
   Widget build(BuildContext context) {
     return CounterProvider(
-      notifier: model,
+      notifier: counterModel,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: HomeScreen(),
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final model = CounterProvider.of(context);
-
-    return Scaffold(
-      appBar: AppBar(title: Text("InheritedNotifier Demo")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("${model.count}", style: TextStyle(fontSize: 50)),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: model.increment,
-              child: Text("Increment"),
-            )
-          ],
-        ),
       ),
     );
   }

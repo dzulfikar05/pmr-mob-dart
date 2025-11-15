@@ -5,6 +5,6 @@ class CounterModel extends ChangeNotifier {
 
   void increment() {
     count++;
-    notifyListeners();
+    notifyListeners(); // memberi tahu UI untuk update
   }
 }

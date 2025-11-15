@@ -3,9 +3,9 @@ import 'counter_model.dart';
 
 class CounterProvider extends InheritedNotifier<CounterModel> {
   const CounterProvider({
+    Key? key,
     required CounterModel notifier,
     required Widget child,
-    Key? key,
   }) : super(key: key, notifier: notifier, child: child);
 
   static CounterModel of(BuildContext context) {
