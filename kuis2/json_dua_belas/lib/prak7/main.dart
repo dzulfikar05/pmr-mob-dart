@@ -27,7 +27,7 @@ void main() {
   print('\n--- Contoh Enkripsi JSON ---');
 
   // 6. Enkripsi data JSON
-  final data = {'user': 'fallujah', 'password': 'abc123xyz'};
+  final data = {'user': 'dzul', 'password': 'abc123xyz'};
   final jsonString = jsonEncode(data); // Ubah Map ke String
   print('Original JSON: $jsonString');
 

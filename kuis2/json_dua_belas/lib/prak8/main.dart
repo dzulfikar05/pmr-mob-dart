@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ApiConfig {
-  static const String baseUrl = 'https://07r1y.wiremockapi.cloud';
+  static const String baseUrl = 'https://241ew.wiremockapi.cloud';
   static const String usersEndpoint = '/users';
   static const int timeoutSeconds = 30;
 
